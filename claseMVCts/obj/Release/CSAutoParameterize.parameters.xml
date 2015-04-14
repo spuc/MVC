@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-claseMVCts-20150312101815;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-claseMVCts-20150312101815.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="LibroConnection-Web.config Connection String" description="LibroConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=libros;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\libros.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LibroConnection']/@connectionString" />
+  </parameter>
+  <parameter name="LibroDBContext-Web.config Connection String" description="LibroDBContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=libros;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\patito.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LibroDBContext']/@connectionString" />
+  </parameter>
+  <parameter name="librosEntities-Web.config Connection String" description="librosEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Model2.csdl|res://*/Models.Model2.ssdl|res://*/Models.Model2.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDb)\v11.0;attachdbfilename=|DataDirectory|\libros.mdf;initial catalog=libros;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='librosEntities']/@connectionString" />
+  </parameter>
+  <parameter name="PeliculasEntities-Web.config Connection String" description="PeliculasEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Peliculas.csdl|res://*/Models.Peliculas.ssdl|res://*/Models.Peliculas.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=Peliculas;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PeliculasEntities']/@connectionString" />
+  </parameter>
+  <parameter name="PeliculaDBContext-Web.config Connection String" description="PeliculaDBContext Connection String used in web.config by the application to access the database." defaultValue="Server=.\SQLEXPRESS;Database=Peliculas;         Integrated Security=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\sp\\MVC\\claseMVCts\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PeliculaDBContext']/@connectionString" />
+  </parameter>
+</parameters>

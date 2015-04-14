@@ -1,0 +1,32 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<claseMVCts.Models.libro>
+
+@{
+    ViewBag.Title = "libros";
+}
+
+<h2>libros</h2>
+
+
+<div id="BookList" class="genre">
+   
+
+    <div class="pagedList" data-otf-target="#BookList">
+        @Html.PagedListPager(Model, page => Url.Action("libros",
+            new {page}),
+            PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+    <ul id="album-list">
+        @foreach (var libro in Model)
+        {
+            <li>
+                <a href="@Url.Action("Details", new {id = libro.Id})">
+                    <img alt="@libro.Titulo" src="@libro.ruta" width="100px" height="100px"/>
+                    <span>@libro.Titulo</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+
+

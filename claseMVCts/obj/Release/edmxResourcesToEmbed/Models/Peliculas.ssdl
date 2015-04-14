@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PeliculasModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PeliculasModelStoreContainer">
+    <EntitySet Name="Peliculas" EntityType="PeliculasModel.Store.Peliculas" store:Type="Tables" store:Schema="dbo" store:Name="Peliculas">
+      <DefiningQuery>SELECT 
+      [Peliculas].[id] AS [id], 
+      [Peliculas].[Titulo] AS [Titulo], 
+      [Peliculas].[ActorPrincipal] AS [ActorPrincipal], 
+      [Peliculas].[Estreno] AS [Estreno], 
+      [Peliculas].[Precio] AS [Precio]
+      FROM [dbo].[Peliculas] AS [Peliculas]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Peliculas.dbo.Peliculas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Peliculas">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Titulo" />
+      <PropertyRef Name="ActorPrincipal" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ActorPrincipal" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Estreno" Type="datetime" />
+    <Property Name="Precio" Type="money" />
+  </EntityType>
+</Schema>

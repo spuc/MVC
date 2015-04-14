@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PeliculasModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PeliculasEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Peliculas" EntityType="PeliculasModel.Peliculas" />
+  </EntityContainer>
+  <EntityType Name="Peliculas">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Titulo" />
+      <PropertyRef Name="ActorPrincipal" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ActorPrincipal" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Estreno" Precision="3" />
+    <Property Type="Decimal" Name="Precio" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

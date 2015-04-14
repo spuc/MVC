@@ -1,0 +1,48 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<claseMVCts.Models.libro>
+
+
+<div id="BookList">
+
+    <div class="pagedList" data-otf-target="#BookList">
+        @Html.PagedListPager(Model, page => Url.Action("Index",new {page, SelectedText = ViewBag.SelectedItem}),
+            PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ruta)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+}
+ 

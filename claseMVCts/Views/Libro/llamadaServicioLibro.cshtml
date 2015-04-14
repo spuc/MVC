@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "";
+}
+
+<h2>llamadaServicioLibro</h2>
+
+
+<link href="~/Content/Site2.css" rel="stylesheet" />
+<h2>Llamada Servicio Libros</h2>
+
+
+<div>
+    <div>
+        <h1>Libros</h1>
+        <input id="buscar" type="button" value="Buscar" />
+    </div>
+    <div>
+        <ul id="album-list" ></ul>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#buscar').click(function () {
+                $('#album-list').empty();
+                $.getJSON("/api/servicioslibro", function (data) {
+                    $.each(data, function (i, libro) {                        
+                        var img = libro.Titulo + ".jpg";
+                        var html = $('<li> <img src="' + libro.ruta + '"width="100px" heigth="100px" alt="' + libro.Titulo + '">' + libro.Titulo + libro.ISBN + '</li>');
+                        $('#album-list').append(html);
+                    });
+                });
+            });
+        });
+    </script>
+}

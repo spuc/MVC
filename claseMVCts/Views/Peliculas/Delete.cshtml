@@ -1,0 +1,53 @@
+﻿@model claseMVCts.Models.Pelicula
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Pelicula</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ActorPrincipal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ActorPrincipal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Estreno)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Estreno)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Precio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Precio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.otro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.otro)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

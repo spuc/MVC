@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h1>@ViewBag.deporte</h1>
+
+
+@using (Html.BeginForm())
+{
+      @Html.AntiForgeryToken()
+    <p>
+        Deporte: @Html.TextBox("valor")  
+        <input type="submit" value="Buscar" />
+    </p>
+
+}
+
+@*<form action="/deportes/deporte" method="post">    <p>
+        Deporte: <input id="valor" name="valor" type="text" value="" />  
+        <input type="submit" value="Buscar" />
+    </p>
+</form>*@

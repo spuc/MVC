@@ -1,0 +1,98 @@
+﻿@using claseMVCts.Recursos
+@model PagedList.IPagedList<claseMVCts.Models.libro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+<div id="mensaje" class="errorMessage row alert alert-danger hide">
+    <div class="col-xs-1">
+        <img class="error-icon" src="~/Content/imagenes/errorIcon15.png" width="14" height="14" alt="error" />
+    </div>
+    <div class="col-xs-11 margin-left-n10">
+        <span class="error-text margin-leftn40">Error!! Ocurrio un problema con....</span>
+    </div>
+</div>
+
+<div class="margin-bottom-20"></div>
+<h2>Index</h2>
+
+      <ul>
+        <li>
+    @Html.ActionLink("Imagenes de libros", "libros")
+    </li>
+      <li>@Html.ActionLink("Servicio libros", "llamadaServicioLibro")</li>
+</ul>
+    
+
+    @using (Ajax.BeginForm("Index", "libro",
+    new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "BookList",
+            LoadingElementId = "loader",
+            OnSuccess = "funciona",
+            OnFailure = "error"
+        }
+        , new { enctype = "multipart/form-data" }))
+{
+    
+  
+    
+    <h3>Categoria:</h3>
+    
+
+    @Html.DropDownListFor(model => model.First().Genero, (SelectList)ViewBag.generos, "Todos") 
+    <input type="hidden" id="SelectedText"/>
+
+    
+    <input type="submit" value="@mensajes.Buscar" />
+    <img src="~/Content/imagenes/loader.gif" id="loader"
+        class="field-validation-valid" />
+    
+    @Html.Partial("_Resultados", Model)
+}
+    
+    </div>
+@section Scripts{
+    
+    
+    <script type="text/javascript" charset="utf-8">
+
+      
+        $("#Genero").change(function () {
+            $("#mensaje").addClass('hide');
+            var selected = this.value;
+            $("#SelectedText").val($(this).text());
+            console.log("SelectedText = " + selected);
+        });
+           
+        function funciona() {
+            var selected = '@ViewBag.SelectedItem';
+           // $("#genero").val(selected);
+            toastr.success("funciona called!");
+        }
+
+        function error(ajaxContext) {
+            //$("#mensaje").css('display', 'block !important');
+            $("#mensaje").removeClass('hide');
+            toastr.error('error!');
+        }
+        
+        //--- toastr  -------
+        $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                //"positionClass": "toast-top-full-width",
+                "onclick": null,
+                "showDuration": "0",
+                "hideDuration": "0",
+                "timeOut": "0",
+                "showMethod": "fadeIn"
+            };
+           
+        });
+        
+    </script>
+}

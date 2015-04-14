@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "toastr";
+}
+
+<h2>toastr</h2>
+
+<div class="jumbotron">
+<div class="row">
+    <div class="col-md-3">
+        <h3>Toastr Success</h3>
+        <p><a id="toastr-success" class="btn btn-success">Success</a></p>
+    </div>
+    <div class="col-md-3">
+        <h3>Toastr Information</h3>
+        <p><a id="toastr-info" class="btn btn-info">Information</a></p>
+    </div>
+    <div class="col-md-3">
+        <h3>Toastr Warning</h3>
+        <p><a id="toastr-warning" class="btn btn-warning ">Warning</a></p>
+    </div>
+    <div class="col-md-3">
+        <h3>Toastr Error</h3>
+        <p><a id="toastr-error" class="btn btn-danger">Error</a></p>
+    </div>
+</div>
+    
+
+@section Scripts{
+    
+    
+    <script type="text/javascript" charset="utf-8">
+
+     //--- toastr  -------
+        
+        $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                //"positionClass": "toast-bottom-full-width",
+                positionClass : 'toast-top-center2',
+                "onclick": null,
+                "showDuration": "0",
+                "hideDuration": "0",
+                "timeOut": "0",
+                "showMethod": "fadeIn"
+            };
+            $('#toastr-success').click(function () {
+                toastr.success('This is a success notification from toastr.');
+            });
+
+            $('#toastr-info').click(function () {
+                toastr.info('This is an information notification provided by toastr.');
+            });
+
+            $('#toastr-warning').click(function () {
+                toastr.warning('This is a warning notification provided by toastr.');
+            });
+
+            $('#toastr-error').click(function () {
+                toastr.error('This is an error notification provided by toastr.');
+            });
+        });
+        
+    </script>
+}
